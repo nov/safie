@@ -1,15 +1,6 @@
 module Safie
   class Exception < StandardError; end
 
-  class ValidationFailed < Exception
-    attr_reader :object
-
-    def initialize(object)
-      super object.errors.full_messages.to_sentence
-      @object = object
-    end
-  end
-
   class HttpError < Exception
     attr_accessor :status, :response
     def initialize(status, message = nil, response = nil)
