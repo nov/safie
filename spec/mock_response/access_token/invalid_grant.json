@@ -1,0 +1,4 @@
+{
+  "error_description": "Invalid authorization code parameter",
+  "error": "invalid_request"
+}

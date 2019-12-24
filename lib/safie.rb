@@ -3,8 +3,13 @@ require 'rack/oauth2'
 module Safie
   ISSUER = 'https://app.safie.link'
   DEFAULT_SCOPE = :use
-  VERSION = ::File.read(
-    ::File.join(::File.dirname(__FILE__), '../VERSION')
+  ENDPOINTS = {
+    authorization: File.join(ISSUER, '/auth/authorize'),
+    token: File.join(ISSUER, '/auth/token'),
+    token_info: File.join(ISSUER, '/auth/tokeninfo')
+  }
+  VERSION = File.read(
+    File.join(File.dirname(__FILE__), '../VERSION')
   ).chomp
 
   def self.logger
@@ -50,5 +55,6 @@ module Safie
   self.debugging = false
 end
 
+require 'safie/exception'
 require 'safie/client'
 require 'safie/access_token'

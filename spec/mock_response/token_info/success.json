@@ -1,0 +1,7 @@
+{
+  "status": "success",
+  "scope": "use",
+  "user_id": 12345,
+  "expires_in": 604800,
+  "mail_address": "nov@matake.jp"
+}

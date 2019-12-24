@@ -4,8 +4,8 @@ module Safie
 
     def initialize(attributes)
       attributes_with_default = {
-        authorization_endpoint: File.join(ISSUER, '/auth/authorize'),
-        token_endpoint: File.join(ISSUER, '/auth/token')
+        authorization_endpoint: ENDPOINTS[:authorization],
+        token_endpoint: ENDPOINTS[:token]
       }.merge(attributes)
       super attributes_with_default
     end

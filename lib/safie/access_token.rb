@@ -8,7 +8,7 @@ module Safie
 
     def token_info!(params = {})
       resource_request do
-        get File.join(ISSUER, '/auth/tokeninfo'), params
+        get ENDPOINTS[:token_info], params
       end
     end
 
