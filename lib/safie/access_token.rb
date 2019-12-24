@@ -4,6 +4,7 @@ module Safie
 
     def initialize(access_token, attributes = {})
       super attributes.merge(access_token: access_token)
+      @token_type = :bearer
     end
 
     def token_info!(params = {})
