@@ -22,7 +22,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'safie'
+
+client = Safie::Client.new(
+  identifier: 'client_id',
+  secret: 'client_secret',
+  redirect_uri: 'https://client.example.com/callback'
+)
+
+authorization_uri = client.authorization_uri(
+  state: SecureRandom.hex(8)
+)
+puts authorization_uri
+`open "#{authorization_uri}"`
+
+print 'code: ' and STDOUT.flush
+code = gets.chop
+client.authorization_code = code
+access_token = client.access_token!
+access_token.token_info!
+```
 
 ## Development
 
